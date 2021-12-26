@@ -10,6 +10,12 @@ Aplicação criada no decorrer da trilha de Nodejs da Rocketseat.
 - Express
 - Swagger
 
+# Executar
+
+- Realizar o clone do repositório `git clone`
+- Executar o comando `yarn` para instalar todas as dependências
+- `yarn dev` para iniciar a aplicação
+
 # Documentação
 
 - Para acessar a documentação basta executar o comando `yarn dev `
