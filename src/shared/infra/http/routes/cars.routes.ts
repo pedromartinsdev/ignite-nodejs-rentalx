@@ -1,16 +1,16 @@
 import { Router } from "express";
 
 import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarController";
+import { CreateCarSpecificationController } from "@modules/cars/useCases/createCarSpecification/createCarSpecificationsController";
 import { ListAvaliableCarsController } from "@modules/cars/useCases/listAvaliableCars/ListAvaliableCarsController";
 
 import { ensureAdmin } from "../middlewares/ensureAdmin";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 
 const carsRoutes = Router();
-
 const createCarController = new CreateCarController();
-
 const listAvaliableCarsController = new ListAvaliableCarsController();
+const createCarSpecificationController = new CreateCarSpecificationController();
 
 carsRoutes.post(
   "/",
@@ -20,5 +20,11 @@ carsRoutes.post(
 );
 
 carsRoutes.get("/avaliable", listAvaliableCarsController.handle);
+carsRoutes.post(
+  "/specifications/:id",
+  ensureAuthenticated,
+  ensureAdmin,
+  createCarSpecificationController.handle
+);
 
 export { carsRoutes };
