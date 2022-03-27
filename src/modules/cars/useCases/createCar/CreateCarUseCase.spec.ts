@@ -61,6 +61,6 @@ describe("Create car", () => {
 
     console.log(car);
 
-    expect(car.avaliable).toBe(true);
+    expect(car.available).toBe(true);
   });
 });
